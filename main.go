@@ -11,7 +11,7 @@ func main() {
 	var firstName string
 	var lastName string
 	var email string
-	var ticketsToBuy int
+	var ticketsToBuy uint
 
 	// fmt.Printf("conferenceName is %T, conferenceTickets is %T and remainingTickets is %T\n", conferenceName, conferenceTickets, remainingTickets)
 	// //%T is a place holder for showing data type in go.
@@ -19,8 +19,10 @@ func main() {
 	fmt.Printf("Welcome to %v booking application.\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets and currently we have %v tickets available\n", conferenceTickets, remainingTickets)
 
+	var bookings = [50]string{}
+
 	fmt.Println("Enter Your first name: ")
-	fmt.Scan(&firstName)
+	fmt.Scan(&firstName) // &"variableName" is pointer, it addresses the memory location of variable saved
 
 	fmt.Println("Enter Your last name: ")
 	fmt.Scan(&lastName)
@@ -41,6 +43,10 @@ func main() {
 	// userTickets = 5
 	// fmt.Printf("User : %v has booked %v tickets.\n", userName, userTickets)
 
-	fmt.Printf("Thank you %v %v for buying %v tickets, a confirmation mail will be sent at %v\n", firstName, lastName, ticketsToBuy, email)
+	remainingTickets -= ticketsToBuy
+	bookings[0] = firstName + " " + lastName
 
+	fmt.Printf("Thank you %v %v for buying %v tickets, a confirmation mail will be sent at %v\n", firstName, lastName, ticketsToBuy, email)
+	fmt.Printf("%v tickets remained for %v\n", remainingTickets, conferenceName)
+	fmt.Printf("%v\n", bookings[0])
 }
