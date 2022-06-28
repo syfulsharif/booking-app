@@ -19,7 +19,8 @@ func main() {
 	fmt.Printf("Welcome to %v booking application.\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets and currently we have %v tickets available\n", conferenceTickets, remainingTickets)
 
-	var bookings = [50]string{}
+	var bookings []string
+	//bookings = append(bookings, firstName+" "+lastName)
 
 	fmt.Println("Enter Your first name: ")
 	fmt.Scan(&firstName) // &"variableName" is pointer, it addresses the memory location of variable saved
@@ -44,9 +45,14 @@ func main() {
 	// fmt.Printf("User : %v has booked %v tickets.\n", userName, userTickets)
 
 	remainingTickets -= ticketsToBuy
-	bookings[0] = firstName + " " + lastName
+	bookings = append(bookings, firstName+" "+lastName)
 
 	fmt.Printf("Thank you %v %v for buying %v tickets, a confirmation mail will be sent at %v\n", firstName, lastName, ticketsToBuy, email)
 	fmt.Printf("%v tickets remained for %v\n", remainingTickets, conferenceName)
 	fmt.Printf("%v\n", bookings[0])
+
+	fmt.Printf("The whole slice: %v\n", bookings)
+	fmt.Printf("The first Valule: %v\n", bookings[0])
+	fmt.Printf("Slice Type: %T\n", bookings)
+	fmt.Printf("The length of the slice %v\n", len(bookings))
 }
