@@ -21,38 +21,29 @@ func main() {
 
 	var bookings []string
 	//bookings = append(bookings, firstName+" "+lastName)
+	for {
+		fmt.Println("Enter Your first name: ")
+		fmt.Scan(&firstName) // &"variableName" is pointer, it addresses the memory location of variable saved
 
-	fmt.Println("Enter Your first name: ")
-	fmt.Scan(&firstName) // &"variableName" is pointer, it addresses the memory location of variable saved
+		fmt.Println("Enter Your last name: ")
+		fmt.Scan(&lastName)
 
-	fmt.Println("Enter Your last name: ")
-	fmt.Scan(&lastName)
+		fmt.Println("Enter Your email address: ")
+		fmt.Scan(&email)
 
-	fmt.Println("Enter Your email address: ")
-	fmt.Scan(&email)
+		fmt.Println("How many tickets would you like to buy?")
+		fmt.Scan(&ticketsToBuy)
 
-	fmt.Println("How many tickets would you like to buy?")
-	fmt.Scan(&ticketsToBuy)
+		remainingTickets -= ticketsToBuy
+		bookings = append(bookings, firstName+" "+lastName)
 
-	//%v is placeholder for showing Value in go.
+		fmt.Printf("Thank you %v %v for buying %v tickets, a confirmation mail will be sent at %v\n", firstName, lastName, ticketsToBuy, email)
+		fmt.Printf("%v tickets remained for %v\n", remainingTickets, conferenceName)
 
-	// var userName string
-	// var userTickets int
-	// // If we don't put value in the variable immediately, we need to specify the type
-	// //ask user for theier name
-	// userName = "Tom"
-	// userTickets = 5
-	// fmt.Printf("User : %v has booked %v tickets.\n", userName, userTickets)
+	}
 
-	remainingTickets -= ticketsToBuy
-	bookings = append(bookings, firstName+" "+lastName)
-
-	fmt.Printf("Thank you %v %v for buying %v tickets, a confirmation mail will be sent at %v\n", firstName, lastName, ticketsToBuy, email)
-	fmt.Printf("%v tickets remained for %v\n", remainingTickets, conferenceName)
-	fmt.Printf("%v\n", bookings[0])
-
-	fmt.Printf("The whole slice: %v\n", bookings)
-	fmt.Printf("The first Valule: %v\n", bookings[0])
-	fmt.Printf("Slice Type: %T\n", bookings)
-	fmt.Printf("The length of the slice %v\n", len(bookings))
+	// //fmt.Printf("The whole slice: %v\n", bookings)
+	// fmt.Printf("The first Valule: %v\n", bookings[0])
+	// fmt.Printf("Slice Type: %T\n", bookings)
+	// fmt.Printf("The length of the slice %v\n", len(bookings))
 }
